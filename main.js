@@ -1,3 +1,4 @@
+<!-- The HTML code for a basic form with input fields for a student's information -->
 <div class="container">
 <h2>Vertical (basic) form</h2>
 <form id="stuForm" method="post">
@@ -32,56 +33,64 @@ placeholder="Enter Address" name="stuAddress">
 <input type="Date" class="form-control" id="stuEnrollmentDate"
 placeholder="Enter Enrollment Date" name="stuEnrollmentDate">
 </div>
+<!-- The 'Save' button to submit the form -->
 <input type="button" class="btn btn-primary" id="stuSave" value="Save"
 onclick="saveStudent();">
 </form>
 </div>
+
+<!-- The JavaScript code for the form functionality -->
 <script>
+// Set focus on the Student ID field when the page is loaded
 $("#stuId").focus();
+
+// Validate the form data and return it as a JSON string
 function validateAndGetFormData() {
-var stuIdVar = $("#stuId").val();
-if (stuIdVar === "") {
-alert("Student Roll-No Required Value");
-$("#stuId").focus();
-return "";
-}
-var stuNameVar = $("#stuName").val();
-if (stuNameVar === "") {
-alert("Student Name is Required Value");
-$("#stuName").focus();
-return "";
-}
-var stuEmailVar = $("#stuClass").val();
-if (stuEmailVar === "") {
-alert("Student Class is Required Value");
-$("#stuClass").focus();
-return "";
-}
-var stuEmailVar1 = $("#stuBithDate").val();
-if (stuEmailVar1 === "") {
-alert("Student BirthDate is Required Value");
-$("#stuBirthDate").focus();
-return "";
-}
-var stuEmailVar2 = $("#stuAddress").val();
-if (stuEmailVar2 === "") {
-alert("Student Address is Required Value");
-$("#stuAddress").focus();
-return "";
-}
-var stuEmailVar3 = $("#stuEnrollmentDate").val();
-if (stuEmailVar3 === "") {
-alert("Student EnrollmentDate is Required Value");
-$("#stuEnrollmentDate").focus();
-return "";
-}
-var jsonStrObj = {
-stuId: stuIdVar,
-stuName: stuNameVar,
-stuClass:stuEmailVar,
-stuBithDate: stuEmailVar1,
-stuAddress:stuEmailVar2,
-stuEnrollmentDate:stuEmailVar3
+    var stuIdVar = $("#stuId").val();
+    if (stuIdVar === "") {
+        alert("Student Roll-No Required Value");
+        $("#stuId").focus();
+        return "";
+    }
+    var stuNameVar = $("#stuName").val();
+    if (stuNameVar === "") {
+        alert("Student Name is Required Value");
+        $("#stuName").focus();
+        return "";
+    }
+    var stuEmailVar = $("#stuClass").val();
+    if (stuEmailVar === "") {
+        alert("Student Class is Required Value");
+        $("#stuClass").focus();
+        return "";
+    }
+    var stuEmailVar1 = $("#stuBithDate").val();
+    if (stuEmailVar1 === "") {
+        alert("Student BirthDate is Required Value");
+        $("#stuBirthDate").focus();
+        return "";
+    }
+    var stuEmailVar2 = $("#stuAddress").val();
+    if (stuEmailVar2 === "") {
+        alert("Student Address is Required Value");
+        $("#stuAddress").focus();
+        return "";
+    }
+    var stuEmailVar3 = $("#stuEnrollmentDate").val();
+    if (stuEmailVar3 === "") {
+        alert("Student EnrollmentDate is Required Value");
+        $("#stuEnrollmentDate").focus();
+        return "";
+    }
+    // Create a JSON object from the form data and return it as a string
+    var jsonStrObj = {
+        stuId: stuIdVar,
+        stuName: stuNameVar,
+        stuClass:stuEmailVar,
+        
+        stuBithDate: stuEmailVar1,
+        stuAddress:stuEmailVar2,
+        stuEnrollmentDate:stuEmailVar3
 
 
 };
@@ -121,6 +130,7 @@ $("#stuName").val("");
 $("#stuEmail").val("");
 $("#stuId").focus();
 }
+// Send the form data to the server for processing
 function saveStudent() {
 var jsonStr = validateAndGetFormData();
 if (jsonStr === "") {
